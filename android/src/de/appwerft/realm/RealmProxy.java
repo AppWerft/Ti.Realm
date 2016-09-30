@@ -25,7 +25,7 @@ import android.app.Activity;
 
 // This proxy can be created by calling Tirealm.createExample({message: "hello world"})
 @Kroll.proxy(creatableInModule=TirealmModule.class)
-public class ExampleProxy extends TiViewProxy
+public class RealmProxy extends TiViewProxy
 {
 	// Standard Debugging variables
 	private static final String LCAT = "ExampleProxy";
@@ -57,7 +57,7 @@ public class ExampleProxy extends TiViewProxy
 
 
 	// Constructor
-	public ExampleProxy()
+	public RealmProxy()
 	{
 		super();
 	}

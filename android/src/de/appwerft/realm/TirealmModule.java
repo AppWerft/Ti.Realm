@@ -10,15 +10,12 @@ package de.appwerft.realm;
 
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
-
-import org.appcelerator.titanium.TiApplication;
 import org.appcelerator.kroll.common.Log;
 import org.appcelerator.kroll.common.TiConfig;
+import org.appcelerator.titanium.TiApplication;
 
-
-@Kroll.module(name="Tirealm", id="de.appwerft.realm")
-public class TirealmModule extends KrollModule
-{
+@Kroll.module(name = "Tirealm", id = "de.appwerft.realm")
+public class TirealmModule extends KrollModule {
 
 	// Standard Debugging variables
 	private static final String LCAT = "TirealmModule";
@@ -27,34 +24,34 @@ public class TirealmModule extends KrollModule
 	// You can define constants with @Kroll.constant, for example:
 	// @Kroll.constant public static final String EXTERNAL_NAME = value;
 
-	public TirealmModule()
-	{
+	public TirealmModule() {
 		super();
 	}
 
 	@Kroll.onAppCreate
-	public static void onAppCreate(TiApplication app)
-	{
-		Log.d(LCAT, "inside onAppCreate");
-		// put module init code that needs to run when the application is created
+	public static void onAppCreate(TiApplication app) {
+		TiApplication instance = TiApplication.getInstance();
+		String ip = instance.getAppProperties().getString("OBJECT_SERVER_IP",
+				"127.0.0.1");
+		instance.getAppProperties().setString("AUTH_URL",
+				"http://" + ip + ":9080/auth");
+		instance.getAppProperties().setString("REALM_URL",
+				"real://" + ip + ":9080/~/realmtasks");
 	}
 
 	// Methods
 	@Kroll.method
-	public String example()
-	{
+	public String example() {
 		Log.d(LCAT, "example called");
 		return "hello world";
 	}
 
 	// Properties
 	@Kroll.getProperty
-	public String getExampleProp()
-	{
+	public String getExampleProp() {
 		Log.d(LCAT, "get example property");
 		return "hello world";
 	}
-
 
 	@Kroll.setProperty
 	public void setExampleProp(String value) {
@@ -62,4 +59,3 @@ public class TirealmModule extends KrollModule
 	}
 
 }
-
