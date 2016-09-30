@@ -5,13 +5,13 @@
 version: 1.0.0
 apiversion: 2
 architectures: armeabi armeabi-v7a x86
-description: tirealm
+description: Ti.Realm
 author: Rainer Knöterich
 license: Specify your license
 copyright: Copyright (c) 2016 by 
 
 # these should not be edited
-name: tirealm
+name: realm
 moduleid: de.appwerft.realm
 guid: 2c4bdcdc-201d-482d-a3cb-6c82e9019dfb
 platform: android
