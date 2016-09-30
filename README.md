@@ -10,3 +10,12 @@ First you have to add one entry to tiapp.xml:
 ```xml
 <Property name="OBJECT_SERVER_IP" type="string">192.168.1.56</Property>
 ```
+
+And now:
+```javascript
+var Realm = require("de.appwerft.realm");
+
+Realm.createObject({
+    name : "Bello",
+    age : 23
+});

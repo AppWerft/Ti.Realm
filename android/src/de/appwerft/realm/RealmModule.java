@@ -7,6 +7,8 @@ import org.appcelerator.titanium.TiApplication;
 @Kroll.module(name = "Tirealm", id = "de.appwerft.realm")
 public class RealmModule extends KrollModule {
 	private static final String LCAT = "Realm 🔆🔅🔆";
+	private static final int DEFAULT_PORT = 8082;
+	private static boolean sentAnalytics = false;
 
 	public RealmModule() {
 		super();
