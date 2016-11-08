@@ -1,5 +1,8 @@
 #Ti.Realm
 
+It is only a playground and cannot work. 
+Reason: native library uses gradle plugin to manipulate bytecode of app.
+
 <img src="https://realm.io/assets/svg/general_logo.svg" width=60> This is a Titanium module for interacting with Realm.io. 
 
 Realm is a mobile platform and a replacement for SQLite & Core Data. Loved by developers and hundreds of millions of users, Realm is faster, easier to use, and (best of all) free. 
