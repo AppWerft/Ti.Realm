@@ -13,12 +13,17 @@ import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.kroll.common.Log;
+import org.appcelerator.titanium.TiApplication;
+
+import android.content.Context;
 
 // This proxy can be created by calling Tirealm.createExample({message: "hello world"})
 @Kroll.proxy(creatableInModule = RealmModule.class)
 public class ObjectProxy extends KrollProxy {
 	// Standard Debugging variables
 	private static final String LCAT = "RealM";
+	RObject rObject;
+	Context context = TiApplication.getInstance().getApplicationContext();
 
 	// Constructor
 	public ObjectProxy() {
@@ -28,6 +33,7 @@ public class ObjectProxy extends KrollProxy {
 	// Handle creation options
 	@Override
 	public void handleCreationArgs(KrollModule createdInModule, Object[] args) {
+		// validation of inputs;
 		if (!(args[0] instanceof String)) {
 			Log.e(LCAT, "First paramater must be a string");
 			return;
@@ -38,8 +44,15 @@ public class ObjectProxy extends KrollProxy {
 		}
 		String className = (String) args[0];
 		KrollDict options = (KrollDict) args[1];
+		for (String key : options.keySet()) {
+			// keys are property names of class
 
-		RObject rObject = new RObject();
+		}
+
+		rObject = new RObject();
+		init(context);
+		// Get a Realm instance for this thread
+		Realm realm = Realm.getDefaultInstance();
 
 		super.handleCreationArgs(createdInModule, args);
 	}

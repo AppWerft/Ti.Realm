@@ -1,6 +1,6 @@
 package de.appwerft.realm;
 
-import RealmObject;
+import io.realm.RealmObject;
 
 public class RObject extends RealmObject {
 
